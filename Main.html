@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website!</title>
+    <style>
+        #muteButton {
+            width: 50px;
+            height: 50px;
+        }
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: rgba(211, 191, 76, 0.5);
+        }
+
+        a {
+            font-size: 24px;
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        h1 {
+            text-align: center;
+        }
+
+        .centered-image {
+            display: block;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .inline-images {
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .inline-images img {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>   
+    <audio id="bgMusic" autoplay loop>
+        <source src="BGMusic.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <img src="images/Unmuted.png" id="muteButton" onclick="toggleMute()" alt="Mute/Unmute">
+
+    <script>
+        function toggleMute() {
+            var audio = document.getElementById('bgMusic');
+            if (audio.volume === 0) {
+                audio.volume = audio.dataset.previousVolume || 0.1;
+                document.getElementById('muteButton').src = 'images/Unmuted.png';
+            } else {
+                audio.dataset.previousVolume = audio.volume;
+                audio.volume = 0;
+                document.getElementById('muteButton').src = 'images/Muted.png';
+            }
+        }
+    </script>
+
+    <h1> Welcome To My Site! <h1>
+        
+    <h2>
+        Welcome to my site! This is a small project I worked on and Ill be updating it whenever possible as to continur learning html
+        <br><br>
+        I mainly chat on Discord and play Roblox :D
+    </h2>
+    
+    <br><br>
+
+    <div class="inline-images">
+        <a href="https://discordapp.com/users/929120748277215242/">
+            <img src="images/Discord.png" class="centered-image">
+        </a>
+        <a href="https://www.roblox.com/users/705732091/profile">
+            <img src="images/Roblox.png" class="centered-image">
+        </a>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <a href="https://discord.gg/9qbdt22eSx">
+        Click here for progress updates!
+    </a>
+    
+</body>
+</html>
